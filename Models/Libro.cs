@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 namespace gestion_biblioteca.Models;
 public class Libro : Biblioteca
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
-    public Libro(int id, double precio, string genero, string isbn, string autor, string titulo)
+    public Libro(double precio, string genero, string isbn, string autor, string titulo)
     {
-        Id = id;
+        Id = new Guid();
         Precio = precio;
         Genero = genero;
         ISBN = isbn;
