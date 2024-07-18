@@ -8,7 +8,7 @@ public class Libro : Biblioteca
 {
     public Guid Id { get; set; }
 
-    public Libro(double precio, string genero, string isbn, string autor, string titulo)
+    public Libro(double precio, string genero, string isbn, string autor, string titulo, int añopublicacion)
     {
         Id = new Guid();
         Precio = precio;
@@ -16,6 +16,7 @@ public class Libro : Biblioteca
         ISBN = isbn;
         Autor = autor;
         Titulo = titulo;
+        AñoPublicacion = añopublicacion;
     }
     public void Descripcion()
     {
