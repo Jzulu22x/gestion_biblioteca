@@ -10,7 +10,7 @@ public class Biblioteca : Publicacion
     public string? Autor {get; set;}
     public string? ISBN {get; set;}
     public string? Genero {get; set;}
-    public string? precio {get; set;}
+    public string? Precio {get; set;}
 
     public void EliminarLibro(List<Libro> listaLibros, string titulo){
         for (int i = 0; i < listaLibros.Count(); i++){
