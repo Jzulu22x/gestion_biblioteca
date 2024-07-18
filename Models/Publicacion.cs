@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 namespace gestion_biblioteca.Models;
 public class Publicacion
 {
-    public string? Titulo {get; set;}
-    public int AñoPublicacion {get; set;}
+    public string? Titulo { get; set; }
+    public int AñoPublicacion { get; set; }
 }
