@@ -7,5 +7,5 @@ namespace gestion_biblioteca.Models;
 public class Publicacion
 {
     public string? Titulo {get; set;}
-    public DateOnly AñoPublicacion {get; set;}
+    public int AñoPublicacion {get; set;}
 }
