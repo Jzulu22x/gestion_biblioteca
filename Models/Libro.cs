@@ -12,10 +12,10 @@ public class Libro : Biblioteca
     {
         Id = new Guid();
         Precio = precio;
-        Genero = genero;
+        Genero = genero.ToLower();
         ISBN = isbn;
-        Autor = autor;
-        Titulo = titulo;
+        Autor = autor.ToLower();
+        Titulo = titulo.ToLower();
         AñoPublicacion = añopublicacion;
     }
     public void Descripcion()
