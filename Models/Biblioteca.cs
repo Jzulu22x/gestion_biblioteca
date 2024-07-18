@@ -26,10 +26,6 @@ public class Biblioteca : Publicacion
             }
         }
     }
-    public void AgregarLibro(List<Libro> listaLibros, Libro libro)
-    {
-        listaLibros.Add(libro);
-    }
     public List<Libro> BuscarLibroAutor(List<Libro> listaLibros, string autor)
     {
         List<Libro> librosEncontrados = new List<Libro>();
