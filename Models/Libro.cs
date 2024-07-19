@@ -10,7 +10,7 @@ public class Libro : Biblioteca
 
     public Libro(double precio, string genero, string isbn, string autor, string titulo, int añopublicacion)
     {
-        Id = new Guid();
+        Id = Guid.NewGuid();
         Precio = precio;
         Genero = genero.ToLower();
         ISBN = isbn;

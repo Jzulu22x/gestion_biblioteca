@@ -14,16 +14,18 @@ public class Biblioteca : Publicacion
 
     public void EliminarLibro(List<Libro> listaLibros, string titulo)
     {
+        bool encontrado = false;
         for (int i = 0; i < listaLibros.Count(); i++)
         {
             if (listaLibros[i].Titulo == titulo)
             {
                 listaLibros.RemoveAt(i);
+                encontrado = true;
+                break;
             }
-            else
-            {
-                Console.WriteLine("Error, libro no encontrado");
-            }
+        }
+        if (!encontrado){
+            Console.WriteLine("Error, libro no encontrado");
         }
     }
     public List<Libro> BuscarLibroAutor(List<Libro> listaLibros, string autor)
