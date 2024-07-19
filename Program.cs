@@ -21,7 +21,9 @@ Hola, que quieres Realizar
 3. Mostrar Libros
 4. Buscar Libro
 5. Aplicar Descuento
-6. Salir
+6. Verficar libro reciente
+7. Ordenar libros por años
+8. Salir
 
     ");
 
@@ -172,31 +174,79 @@ Hola, que quieres Realizar
 
             break;
         case '5':
+            Console.Clear();
             Console.WriteLine("Ingrese el porcentaje de descuento que quieres realizar => ");
             double porcentaje = Convert.ToDouble(Console.ReadLine());
-            double porcentajeArreglado = porcentaje/100;
+            double porcentajeArreglado = porcentaje / 100;
             Console.WriteLine("Ingrese el titulo del libro al cual quieres aplicar el descuento => ");
             string? libroAdescuento = Console.ReadLine().ToLower();
             bool encontrado = false;
             double valor = 0;
             int indice = -1;
-            for (int i = 0; i < listaLibros.Count(); i++){
-                if(listaLibros[i].Titulo == libroAdescuento){
+            for (int i = 0; i < listaLibros.Count(); i++)
+            {
+                if (listaLibros[i].Titulo == libroAdescuento)
+                {
                     encontrado = true;
                     valor = listaLibros[i].Precio;
                     indice = i;
                     break;
                 }
             }
-            if(encontrado){
+            if (encontrado)
+            {
                 Console.WriteLine($"El nuevo precio del libro luego del {porcentaje}% de descuento es {valor * porcentajeArreglado}");
                 listaLibros[indice].Precio = valor * porcentajeArreglado;
             }
+            else
+            {
+                Console.WriteLine("Error, ningun libro encontrado");
+            }
+            Console.Write("Precione cualquier tecla para continuar => ");
+            Console.ReadKey();
             break;
 
-            case '6':
-                run = false;
-                break;
+        case '6':
+            Console.WriteLine("Por favor ingrese el titulo del libro que desea verficar");
+            string? tituloReciente = Console.ReadLine().ToLower();
+            int indiceReciente = -1;
+            for (int i = 0; i< listaLibros.Count(); i++){
+                if (listaLibros[i].Titulo == tituloReciente){
+                    indiceReciente = i;
+                    break;
+                }
+            }
+            int añoActual = DateTime.Now.Year;
+            var metodoReciente = new Biblioteca();
+            bool resultado = false;
+            for (int i = 0; i < listaLibros.Count(); i++)
+            {
+                if (añoActual - listaLibros[indiceReciente].AñoPublicacion <= 5)
+                {
+                    resultado = true;
+                }
+            }
+
+            if (resultado)
+            {
+                Console.WriteLine("El libro es reciente");
+            }
+            else
+            {
+                Console.WriteLine("Ellibro no es reciente");
+            }
+            Console.Write("Precione cualquier tecla para continuar => ");
+            Console.ReadKey();
+            break;
+        case '7':
+            listaLibros = listaLibros.OrderBy(lista => lista.AñoPublicacion).ToList();
+            Console.WriteLine("Lista ordenada exitosamente, por favor vaya a la opcion 3 para confirmar");
+            Console.Write("Precione cualquier tecla para continuar => ");
+            Console.ReadKey();
+            break;
+        case '8':
+            run = false;
+            break;
         default:
             break;
     }

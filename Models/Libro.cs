@@ -30,26 +30,10 @@ public class Libro : Biblioteca
         Precio: {Precio}
         ");
     }
-    public double Descuento(double porcentaDescuento)
-    {
-        double precioDescuento = Precio - (Precio * porcentaDescuento);
-        return precioDescuento;
-    }
 
     public List<Libro> OrdenarPorAño(List<Libro> listaAordenar)
     {
         List<Libro> listaOrdenada = listaAordenar.OrderBy(libro => libro.AñoPublicacion).ToList();
         return listaOrdenada;
-    }
-    public bool LibroReciente(List<Libro> libros, int añoActual)
-    {
-        for (int i = 0; i < libros.Count(); i++)
-        {
-            if (añoActual - libros[i].AñoPublicacion <= 5)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }
